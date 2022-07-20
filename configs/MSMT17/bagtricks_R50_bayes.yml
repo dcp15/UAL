@@ -31,4 +31,4 @@ DATASETS:
   NAMES: ("MSMT17",)
   TESTS: ("MSMT17",)
 
-OUTPUT_DIR: logs/msmt17/bagtricks_R50_bayes_M
+OUTPUT_DIR: logs/msmt17/bagtricks_R50_bayes
