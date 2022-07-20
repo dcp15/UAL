@@ -1,0 +1,36 @@
+_BASE_: ../Base-bagtricks.yml
+
+MODEL:
+  BACKBONE:
+    NAME: build_resnest_backbone
+
+  HEADS:
+    NAME: BayesHead
+    NORM: BN
+    WITH_BNNECK: True
+    POOL_LAYER: GlobalAvgPool
+    NECK_FEAT: before
+    CLS_LAYER: Linear
+    TEST_TIME_ENS: 5
+
+  LOSSES:
+    NAME: ("TripletLoss", "DataUncertaintyLoss")
+
+    TRI:
+      MARGIN: 0.3
+      HARD_MINING: True
+      NORM_FEAT: True
+      SCALE: 1.
+
+    DUL:
+      EPSILON: 0.1
+      LAMDA: 1.
+      SCALE: 1.
+
+
+DATASETS:
+  NAMES: ("MSMT17",)
+  TESTS: ("MSMT17",)
+
+OUTPUT_DIR: logs/msmt17/bagtricks_S50_bayes_M
+

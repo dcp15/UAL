@@ -1,0 +1,34 @@
+_BASE_: ../Base-bagtricks.yml
+
+MODEL:
+  BACKBONE:
+    WITH_IBN: True
+
+  HEADS:
+    NAME: BayesHead
+    NORM: BN
+    WITH_BNNECK: True
+    POOL_LAYER: GlobalAvgPool
+    NECK_FEAT: before
+    CLS_LAYER: Linear
+    TEST_TIME_ENS: 10
+
+  LOSSES:
+    NAME: ("TripletLoss", "DataUncertaintyLoss")
+
+    TRI:
+      MARGIN: 0.3
+      HARD_MINING: True
+      NORM_FEAT: True
+      SCALE: 1.
+
+    DUL:
+      EPSILON: 0.1
+      LAMDA: 1.
+      SCALE: 1.
+
+DATASETS:
+  NAMES: ("Market1501",)
+  TESTS: ("Market1501",)
+
+OUTPUT_DIR: logs/market1501/bagtricks_R50-ibn_bayes
