@@ -6,13 +6,13 @@
 
 This repository is the code for ECCV2022 paper: Reliability-Aware Prediction via Uncertainty Learning for Person Image Retrieval. 
 
-The code is based on the repository [fast-reid]([JDAI-CV/fast-reid: SOTA Re-identification Methods and Toolbox (github.com)](https://github.com/JDAI-CV/fast-reid)). Please refer to it for details.
+The code is based on the repository [fast-reid](https://github.com/JDAI-CV/fast-reid). Please refer to it for details.
 
 
 
 ## Training & Evaluation
 
-To train a model, first setup the corresponding datasets following [datasets/README.md]([fast-reid/datasets at master · JDAI-CV/fast-reid (github.com)](https://github.com/JDAI-CV/fast-reid/tree/master/datasets)), then run:
+To train a model, first setup the corresponding datasets following [datasets/README.md](https://github.com/JDAI-CV/fast-reid/tree/master/datasets), then run:
 
 ```python'''
 python3 tools/train_net.py --config-file ./configs./configs/MSMT17/bagtricks_R50_bayes.yml MODEL.DEVICE "cuda:0"
